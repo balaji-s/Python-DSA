@@ -6,11 +6,11 @@ class Stack:
     def size(self):
         return len(self.items)
 
-    def push(self,item):
+    def push(self, item):
         self.items.append(item)
     
     def pop(self):
-        self.items.pop()
+        return self.items.pop()
     
     def is_empty(self):
         return self.items == []
@@ -18,6 +18,14 @@ class Stack:
     def peek(self):
         return self.items[len(self.items)-1]
 
-stack =  Stack()
-stack.push("balaji")
+stack = Stack()
+stack.push('balaji')
+print(stack.pop())
+print(stack.size())
+stack.push(True)
+stack.push(2)
+print(stack.pop())
+print(stack.size())
+print(stack.peek())
+print(stack.pop())
 print(stack.size())
