@@ -18,7 +18,7 @@ class Stack:
     def peek(self):
         return self.items[len(self.items)-1]
 
-stack = Stack()
+'''stack = Stack()
 stack.push('balaji')
 print(stack.pop())
 print(stack.size())
@@ -28,4 +28,6 @@ print(stack.pop())
 print(stack.size())
 print(stack.peek())
 print(stack.pop())
-print(stack.size())
+print(stack.size())'''
+
+
