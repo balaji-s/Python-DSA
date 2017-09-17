@@ -17,8 +17,10 @@ class Stack:
 
     def peek(self):
         return self.items[len(self.items)-1]
+    def __str__(self):
+        return " ".join(self.items)
 
-'''stack = Stack()
+stack = Stack()
 stack.push('balaji')
 print(stack.pop())
 print(stack.size())
@@ -28,6 +30,12 @@ print(stack.pop())
 print(stack.size())
 print(stack.peek())
 print(stack.pop())
-print(stack.size())'''
+print(stack.size())
+stack.push("aa")
+stack.push("birni")
+stack.push("irnib")
+print(stack.size())
+print(stack.peek())
+print(stack.__str__)
 
 

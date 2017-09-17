@@ -30,9 +30,9 @@ def string_rev(string):
         print(string[:-1], string[-1:])
         return  string[-1:] + string_rev(string[:-1]) 
 
-'''print(string_rev('balaji'))
+print(string_rev('balaji'))
 print(string_rev('birni'))
-print(string_rev("kayaak"))'''
+print(string_rev("kayaak"))
 def sumList(mylist):
 
     if(len(mylist) == 1):
@@ -50,8 +50,8 @@ def factorial(number):
         return number
     else:
         print(number)
-        return number * factorial(number-1)
-#print(factorial(5))
+        return  factorial(number-1) * number
+print(factorial(5))
 
 
 def to_Str(number, base):
@@ -80,5 +80,15 @@ def palindrome(string):
         return False
 
 
-print(palindromeLower('Go hang a salami; I\'m a lasagna hog.'))
+#print(palindromeLower('Go hang a salami; I\'m a lasagna hog.'))
+
+
+def recursiveList(myList):
+    if len(myList) == 0:
+        return myList
+    else:
+        return [myList[-1]] + recursiveList(myList[:-1])
+
+
+print(recursiveList([2,1,4,7,-2,456,45]))
     
