@@ -1,4 +1,4 @@
-class queue:
+class Queue:
 
     def __init__(self):
         self.queue_items = []
@@ -17,13 +17,16 @@ class queue:
 
 
 
-myQue = queue()
+'''myQue = Queue()
 print(myQue.is_empty())
 myQue.enqueue(2)
 myQue.enqueue(True)
 myQue.enqueue("Name")
 myQue.enqueue(1.03)
-print(myQue.size())
+print("the size of queue is", myQue.size())
 print(myQue.dequeue())
-print(myQue.size())
+print("the size of queue is", myQue.size())
 print(myQue.is_empty())
+print(myQue.dequeue())
+print(myQue.dequeue())
+print(myQue.size())'''

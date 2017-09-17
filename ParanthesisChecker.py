@@ -31,6 +31,15 @@ def matches(openp, closep):
     return opens.index(openp) == closes.index(closep)
 
 
+def rev_String(String):
+    stack =  Stack()
+    for char in String:
+        stack.push(char)
+    while not stack.is_empty():
+        print(stack.pop()+" ")
+
+
+rev_String("balaji")
 print(par_checker("()[]"))
 print(par_checker('()([])'))
 

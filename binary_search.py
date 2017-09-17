@@ -1,6 +1,8 @@
 def binary_search(myList,number):
     midpoint = len(myList)//2 # length is 5
     print(myList[midpoint])
+    if midpoint == number:
+        print('found your number: ', number)
    
     if len(myList) == 1:
         if myList[0]==number:
@@ -16,4 +18,4 @@ def binary_search(myList,number):
     
 
 
-binary_search(range(0,20), 25)
+binary_search([1,3,5,7,9], 15)
