@@ -7,10 +7,10 @@ class Queue:
         return self.queue_items == []
 
     def enqueue(self,item):
-        self.queue_items.insert(0,item)
+        self.queue_items.append(item)
     
     def dequeue(self):
-        return self.queue_items.pop()
+        return self.queue_items.pop(0)
     
     def size(self):
         return len(self.queue_items)

@@ -40,7 +40,8 @@ def insertion_sort(my_list):
     
   return my_list
 
-
+def shell_sort(my_list):
+  pass
     
 print(bubble_sort(a_list))
 print (selection_sort(a_list))

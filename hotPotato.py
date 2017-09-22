@@ -1,4 +1,5 @@
 from Queue import Queue
+from deque import deque
 
 def hotPotato(name_list, num):
     queue = Queue()
@@ -10,7 +11,7 @@ def hotPotato(name_list, num):
         queue.dequeue()
     return queue.dequeue() 
 
-#print(hotPotato(['brad','tom','bill','bush','barney'],7))
+
 
 
 
@@ -30,9 +31,7 @@ def string_rev(string):
         print(string[:-1], string[-1:])
         return  string[-1:] + string_rev(string[:-1]) 
 
-print(string_rev('balaji'))
-print(string_rev('birni'))
-print(string_rev("kayaak"))
+
 def sumList(mylist):
 
     if(len(mylist) == 1):
@@ -51,7 +50,7 @@ def factorial(number):
     else:
         print(number)
         return  factorial(number-1) * number
-print(factorial(5))
+
 
 
 def to_Str(number, base):
@@ -65,8 +64,7 @@ def to_Str(number, base):
         return to_Str(number//base, base) + a
 
 
-#print(to_Str(17, 16))
-#print(to_Str(10,2))
+
 
 def palindromeLower(string):
     return palindrome(string.replace('\'','').replace('.','').replace(',','').replace(';','').replace(' ','').lower())
@@ -78,9 +76,23 @@ def palindrome(string):
         return palindrome(string[1:][:-1])
     else:
         return False
+def palindromeQueue(string):
+    mydeck = deque()
 
+    for ch in string:
+        mydeck.add_front(ch)
+    success = False
+    while mydeck.size() > 1 :
+        if mydeck.remove_front() == mydeck.remove_rear():
+            success = True
+            continue
+        else:
+            success = False
+            break;
 
-#print(palindromeLower('Go hang a salami; I\'m a lasagna hog.'))
+    return success
+    
+
 
 
 def recursiveList(myList):
@@ -88,7 +100,15 @@ def recursiveList(myList):
         return myList
     else:
         return [myList[-1]] + recursiveList(myList[:-1])
-
-
-print(recursiveList([2,1,4,7,-2,456,45]))
+'''print(string_rev('balaji'))
+print(string_rev('birni'))
+print(string_rev("kayaak"))
+print(factorial(5))
+print("hotpotato",hotPotato(['brad','tom','bill','bush','barney'],7))
+print(to_Str(17, 16))
+print(to_Str(10,2))
+print(palindromeLower('Go hang a salami; I\'m a lasagna hog.'))
+print(recursiveList([2,1,4,7,-2,456,45]))'''
     
+print(palindromeQueue("kayaka"))
+print(palindromeQueue("madam"))
