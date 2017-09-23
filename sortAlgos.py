@@ -1,4 +1,5 @@
 a_list = [54, 26, 93, 17, -1, 77, 31, 44, -2, 55, 20]
+b_list = [15, 5, 4, 18, 12, 19, 14, 10, 8, 20]
 
 def bubble_sort(my_list):
   
@@ -46,3 +47,8 @@ def shell_sort(my_list):
 print(bubble_sort(a_list))
 print (selection_sort(a_list))
 print(insertion_sort(a_list))
+
+
+print(bubble_sort(b_list))
+print (selection_sort(b_list))
+print(insertion_sort(b_list))
