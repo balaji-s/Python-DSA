@@ -1,3 +1,5 @@
+
+
 a_list = [54, 26, 93, 17, -1, 77, 31, 44, -2, 55, 20]
 b_list = [15, 5, 4, 18, 12, 19, 14, 10, 8, 20]
 
@@ -42,13 +44,33 @@ def insertion_sort(my_list):
   return my_list
 
 def shell_sort(my_list):
-  pass
+  gaps = len(my_list) //2
+  while(gaps > 0):
+    for i in range(len(my_list)):
+      while(i < len(my_list)):
+        if i + gaps < len(my_list) and my_list[i] > my_list[i+gaps]:
+          my_list[i],my_list[i+gaps] = my_list[i+gaps], my_list[i]
+        
+        i += gaps
+    gaps = gaps // 2
+  return my_list
+ 
+ 
+ 
+
+  
     
-print(bubble_sort(a_list))
+'''print(bubble_sort(a_list))
 print (selection_sort(a_list))
 print(insertion_sort(a_list))
 
 
 print(bubble_sort(b_list))
 print (selection_sort(b_list))
-print(insertion_sort(b_list))
+print(insertion_sort(b_list))'''
+
+
+
+print(shell_sort(a_list))
+print(shell_sort(b_list))
+print(shell_sort([2, 1, 0, 3, 4]))
