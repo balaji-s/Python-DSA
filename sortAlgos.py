@@ -1,6 +1,6 @@
 import random
 
-kk = list(range(1,2300))
+kk = list(range(234,2300,5))
 random.shuffle(kk)
 a_list = [54, 26, 93, 17, -1, 77, 31, 44, -2, 55, 20]
 b_list = [15, 5, 4, 18, 12, 19, 14, 10, 8, 20]
@@ -49,11 +49,12 @@ def shell_sort(my_list):
   gaps = len(my_list) //2
   while(gaps > 0):
     for i in range(len(my_list)):
-      while(i <= len(my_list)):
-        if i + gaps < len(my_list) and my_list[i] > my_list[i+gaps]:
-          my_list[i],my_list[i+gaps] = my_list[i+gaps], my_list[i]
+      j =0
+      while(j < len(my_list)):
+        if j + gaps < len(my_list) and my_list[j] > my_list[j+gaps]:
+          my_list[j],my_list[j+gaps] = my_list[j+gaps], my_list[j]
         
-        i += gaps
+        j += gaps
     gaps = gaps // 2
   return my_list
  
@@ -77,4 +78,9 @@ print(insertion_sort(b_list))'''
 print(selection_sort(kk))
 print(insertion_sort(kk))'''
 print(shell_sort(kk))
+print(shell_sort([5,4,3]))
+kc = list(range(2,45,2))
+random.shuffle(kc)
+print(kc)
+print(shell_sort(kc))
 
