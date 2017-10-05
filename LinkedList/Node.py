@@ -1,8 +1,8 @@
-class Node:
+class Node(object):
 
-    def __init__(self,data):
+    def __init__(self,data = None, next = None):
         self.data = data
-        self.next = None
+        self.next = next
     
     def get_data(self):
         return self.data
@@ -14,9 +14,12 @@ class Node:
     
     def set_next(self, next):
         self.next = next
-
+    def __str__(self):
+        return str(self.data)
 
 
 temp = Node("birni")
-
+temp1 = Node("irnib")
+temp.next = temp1
+print(temp)
 print(temp.get_data())
