@@ -35,32 +35,31 @@ class UnorderedList:
         return found
 
     def remove(self, item):
+        """Remove an item from LinkedList.
+        """
         current = self.head
         previous = None
         found = False
         while not found:
             if current.get_data() == item:
+                print('hi')
                 found = True
                 self.length -= 1
             else:
                 previous = current
                 current = current.get_next()
+                print('not f', current.get_data())
 
-        if previous ==  None:
-            self.head = current.get_next()
-        else:
-            previous.set_next(current.get_next())
+        
         return found
     def lengthUl(self):
         return self.length
 
 ll = UnorderedList()
 
-for i in range(10):
+for i in range(11):
     ll.add(i)
 
-print(ll.lengthUl())
-print(ll.remove(9))
-print(ll.find(9))
-print(ll.lengthUl())
+print(ll.remove.__doc__)
+print(ll.remove(10))
 

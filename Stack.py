@@ -35,6 +35,5 @@ stack.push("birni")
 stack.push("irnib")
 print(stack.size())
 print(stack.peek())
-print(stack.str)
 
 
