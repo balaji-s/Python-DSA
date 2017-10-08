@@ -46,6 +46,13 @@ class mySet:
         for el in setB:
             iSet.add(el)
         return iSet
+    def subSet(self, setB):
+        for element in setB:
+            if element not in self.uniqueItems:
+                return False
+            else:
+                return True
+
 class _SetIterator:
     def __init__(self,theList):
         self.uniqueItems = theList
@@ -86,3 +93,5 @@ print('----------------')
 setD = sett.difference(setA)
 for kk in setD:
     print(kk)
+
+print(sett.isSubsetOf(setA))
