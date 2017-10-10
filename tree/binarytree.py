@@ -1,5 +1,3 @@
-from Queue import Queue 
-
 class BinaryTree:
     def __init__(self, root):
         self.root = root
@@ -49,8 +47,8 @@ class BinaryTree:
             self.preOrderTrav(subtree.get_left_child())
             self.preOrderTrav(subtree.get_right_child())
             print(subtree.root)
-    def breathFirstTrav(tree):
-        queue = Queue()
+    def breathFirstTrav(self, tree):
+        queue = _Queue()
         queue.enqueue(tree)
 
         while not queue.is_empty():
@@ -62,12 +60,29 @@ class BinaryTree:
             if node.get_right_child() is not None:
                 queue.enqueue(node.get_right_child())
 
+class _Queue:
+
+    def __init__(self):
+        self.queue_items = []
+    
+    def is_empty(self):
+        return self.queue_items == []
+
+    def enqueue(self,item):
+        self.queue_items.append(item)
+    
+    def dequeue(self):
+        return self.queue_items.pop(0)
+    
+    def size(self):
+        return len(self.queue_items)
+
 
 rot = BinaryTree('a')
 rot.insert_left('b')
 rot.insert_right('c')
-rot.get_left_child().insert_right('d')
-rot.get_left_child().insert_left('e')
+rot.get_left_child().insert_left('d')
+rot.get_left_child().insert_right('e')
 rot.get_right_child().insert_left('f')
 rot.get_right_child().insert_right('g')
 
@@ -89,5 +104,5 @@ rot.breathFirstTrav(rot)
 '''
         a
     b       c
-  e    d   f  g    
+  d   e   f  g    
 '''
