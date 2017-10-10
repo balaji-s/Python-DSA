@@ -18,3 +18,14 @@ class doublyLinkedNode:
         return self.next_node
     def get_prev(self):
         return self.prev_node
+
+
+class DLinkedList:
+
+    def __init__(self):
+        self.head = None
+    
+    def add(self, data):
+        if self.head is None:
+            dNode = doublyLinkedNode(data)
+            dNode.set_next(self.head)
