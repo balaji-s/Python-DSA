@@ -1,8 +1,8 @@
 from Node import Node
 
 class UnorderedList:
-    def __init__(self):
-        self.head = None
+    def __init__(self, node = None):
+        self.head = node
         self.length = 0
     
     def is_empty(self):
@@ -41,8 +41,6 @@ class UnorderedList:
         found = False
         while not found:
             if current.get_data() == item:
-                previous = current
-                current = current.get_next()
                 found = True
                 self.length -= 1
             else:
