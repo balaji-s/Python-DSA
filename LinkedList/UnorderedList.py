@@ -29,7 +29,6 @@ class UnorderedList:
             if current.get_data() == item:
                 return True
             else :
-                print(current.get_data())
                 current = current.get_next()
                 found = False
         return found
@@ -42,14 +41,18 @@ class UnorderedList:
         found = False
         while not found:
             if current.get_data() == item:
-                print('hi')
+                previous = current
+                current = current.get_next()
                 found = True
                 self.length -= 1
             else:
                 previous = current
                 current = current.get_next()
                 print('not f', current.get_data())
-
+        if previous is None:
+            self.head = current.get_next()
+        else:
+           previous.set_next(current.get_next())
         
         return found
     def lengthUl(self):
@@ -61,5 +64,7 @@ for i in range(11):
     ll.add(i)
 
 print(ll.remove.__doc__)
-print(ll.remove(10))
+print('size', ll.size())
+print(ll.remove(4))
+print('size', ll.size())
 
