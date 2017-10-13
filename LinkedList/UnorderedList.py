@@ -25,7 +25,7 @@ class UnorderedList:
     def find(self, item):
         current = self.head
         found = False
-        while current != None:
+        while current is not None and current.get_data() != item:
             if current.get_data() == item:
                 return True
             else :
@@ -46,7 +46,6 @@ class UnorderedList:
             else:
                 previous = current
                 current = current.get_next()
-                print('not f', current.get_data())
         if previous is None:
             self.head = current.get_next()
         else:
@@ -55,6 +54,12 @@ class UnorderedList:
         return found
     def lengthUl(self):
         return self.length
+
+    def traversal(self):
+        current = self.head
+        while current is not None:
+            print(current.get_data())
+            current = current.get_next()
 
 ll = UnorderedList()
 
@@ -65,4 +70,5 @@ print(ll.remove.__doc__)
 print('size', ll.size())
 print(ll.remove(4))
 print('size', ll.size())
+ll.traversal()
 
