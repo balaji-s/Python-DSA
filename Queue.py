@@ -16,7 +16,14 @@ class Queue:
         return len(self.queue_items)
 
 
+class circularQueue:
+    def __init__(self , max_size):
 
+        self.cQueue = list()
+        self.count = 0
+        self.front = 0
+        self.back = max_size - 1
+        
 '''myQue = Queue()
 print(myQue.is_empty())
 myQue.enqueue(2)
