@@ -60,6 +60,25 @@ class UnorderedList:
         while current is not None:
             print(current.get_data())
             current = current.get_next()
+    
+    def __iter__(self):
+        return _llIterator(self.head)
+
+class _llIterator:
+
+    def __init__(self, llist):
+        self.llist = llist
+    
+    def __next__(self):
+        if self.llist.get_next() is None:
+            raise StopIteration
+        else:
+            item = self.llist.get_data()
+            self.llist = self.llist.get_next()
+            return item
+
+    def __iter__(self):
+        return self
 
 ll = UnorderedList()
 
@@ -71,4 +90,7 @@ print('size', ll.size())
 print(ll.remove(4))
 print('size', ll.size())
 ll.traversal()
+
+for i in ll:
+    print(i)
 
