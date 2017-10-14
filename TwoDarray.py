@@ -30,10 +30,14 @@ class Array2D:
         the_array = self._rows[row]
         the_array[column] = value
     
-dfdf = Array2D(2,2)
-print(dfdf.row_length, dfdf.column_length)
+array2d = Array2D(2,3)
+#print(array2d.row_length, array2d.column_length)
 
-for i in range(dfdf.row_length):
-    for j in range(dfdf.column_length):
-        dfdf[i,j] = i + j
-print(dfdf[0,0], dfdf[0, 1], dfdf[1,0], dfdf[1,1])
+'''for i in range(array2d.row_length):
+    for j in range(array2d.column_length):
+        array2d[i,j] = i*i + j *j
+
+for i in range(array2d.row_length):
+    for j in range(array2d.column_length):
+        print(array2d[i,j])'''
+print(array2d.numRows(), array2d.numColumns())
