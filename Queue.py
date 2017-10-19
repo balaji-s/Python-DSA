@@ -1,4 +1,9 @@
 from Array import Array
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> master
 class Queue:
     '''
     List based implementation
@@ -14,6 +19,7 @@ class Queue:
         self.queue_items.append(item)
     
     def dequeue(self):
+        assert not self.is_empty(), "cannot dequeue from empty queue"
         return self.queue_items.pop(0)
     
     def size(self):
