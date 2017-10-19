@@ -4,7 +4,7 @@ class BinaryTree:
         self.left_child = None
         self.right_child = None
     def insert_left(self, branch):
-        if self.left_child == None:
+        if self.left_child is None:
             self.left_child = BinaryTree(branch)
         else:
             tree = BinaryTree(branch)
@@ -12,7 +12,7 @@ class BinaryTree:
             self.left_child = tree
     
     def insert_right(self, branch):
-        if self.right_child == None:
+        if self.right_child is None:
             self.right_child = BinaryTree(branch)
         else:
             tree = BinaryTree(branch)
@@ -30,22 +30,23 @@ class BinaryTree:
     def get_root_value(self):
         return self.root
 
-    def preOrderTrav(self, subtree):
+    def preordertrav(self, subtree):
+        '''pre order traversal
+        '''
         if subtree is not None:
             print(subtree.root)
-            self.preOrderTrav(subtree.get_left_child())
-            self.preOrderTrav(subtree.get_right_child())
-    
-    def inOrderTrav(self, subtree):
+            self.preordertrav(subtree.get_left_child())
+            self.preordertrav(subtree.get_right_child())
+    def inordertraversal(self, subtree):
         if subtree is not None:
-            self.preOrderTrav(subtree.get_left_child())
+            self.inordertraversal(subtree.get_left_child())
             print(subtree.root)
-            self.preOrderTrav(subtree.get_right_child())
+            self.inordertraversal(subtree.get_right_child())
 
-    def postOrderTrav(self, subtree):
-        if subtree is not None:
-            self.preOrderTrav(subtree.get_left_child())
-            self.preOrderTrav(subtree.get_right_child())
+    def postordertraversal(self, subtree):
+        if subtree:
+            self.postordertraversal(subtree.get_left_child())
+            self.postordertraversal(subtree.get_right_child())
             print(subtree.root)
     def breathFirstTrav(self, tree):
         queue = _Queue()
@@ -94,12 +95,14 @@ print(rot.get_right_child().get_root_value())
 print(rot.get_right_child().get_left_child().get_root_value())
 print(rot.get_right_child().get_right_child().get_root_value())'''
 
-rot.preOrderTrav(rot)
+print('------pre order traversal-------')
+rot.preordertrav(rot)
+print('------in order traversal-------')
+rot.inordertraversal(rot)
 print('-------------')
-rot.inOrderTrav(rot)
-print('-------------')
-rot.postOrderTrav(rot)
-print('--------------')
+print('------post order traversal-------')
+rot.postordertraversal(rot)
+print('-------breadth first search-------')
 rot.breathFirstTrav(rot)
 '''
         a
