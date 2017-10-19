@@ -21,4 +21,33 @@ class priority_queue:
         if self.head is None:
             self.head = pQueue
         else:
-            
+            current = self.head
+            stop = False
+            previous = None
+            while current is not None and not stop:
+                if item > current.data and < current.next_node.data:
+                    stop = True
+                elif item == current.data:
+                    stop = True
+                else:
+                    previous = current
+                    current = current.next_node
+                
+            self.tail.next = pQueue
+        self.tail = pQueue
+        self.size += 1
+
+class binaryheap:
+
+    def __init__(self):
+        self.heap_list = [0]
+        self.size = 0
+    
+    def __len__(self):
+        return self.size
+
+    def is_empty():
+        return self.size == 0
+
+    
+    def insert(self, item):
