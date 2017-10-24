@@ -29,7 +29,7 @@ class DLinkedList:
             nextnode = self.head.next_node
             self.head.next_node = dnode
             dnode.next_node = nextnode
-            
+            nextnode.prev_node = dnode
         self.size += 1
         
     def add_last(self, item) :
@@ -65,15 +65,29 @@ class DLinkedList:
         if position is None:
             nextnode = self.head.next_node
             self.head = nextnode.next_node
+            return nextnode.data
         elif position == self.size - 1:
             prevnode = self.tail.prev_node
-            previous =  prevnode.prev_node
-            self.tail = previous
+            previous = prevnode.prev_node
+            previous.next_node = self.tail
+            return prevnode.data
         else:
             if not self.is_empty():
                 current = self.head
+                count = 0
+                stop = False
                 while current is not None:
-                    pass
+                    if(count == position) and not stop:
+                        stop = True
+                        return current.data
+                    else:
+                        self.head = current
+                        current = current.next_node
+                        count += 1
+                   
+                   
+
+                    
         self.size -= 1
 
     
@@ -101,13 +115,22 @@ dlinkedlist = DLinkedList()
 dlinkedlist.traversal()
 print('------ traversal------')'''
 dkk = DLinkedList()
-for j in range(5):
+for j in range(10):
     dkk.add(j)
 #dkk.traversal()
+print(len(dkk))
+print('---traversal--')
+dkk.traversal()
+
 print(dkk.find(7))
-print(dkk.pop())
+print(dkk.pop(4))
 print('--traversing after pop---')
+'''print(dkk.pop(len(dkk)-1))
+print('traversing after pop')
 dkk.traversal()
 print('-traversing after removing last element using pop')
-dkk.pop(3)
 dkk.traversal()
+dkk.pop(1)
+print('----traversal -------')
+dkk.traversal()
+dkk.pop(0)'''
