@@ -89,14 +89,14 @@ class circularLinkedList:
             current = current.next
             count += 1
 
-circularll = circularLinkedList()
+'''circularll = circularLinkedList()
 
 circularll.enqueue(12)
 circularll.enqueue(-1)
 circularll.enqueue(22)
 circularll.enqueue(2)
 
-circularll.traversal()
+circularll.traversal()'''
 
 
 class orderedCircularLinkedList:
@@ -133,7 +133,7 @@ class orderedCircularLinkedList:
             
 
 
-oo = orderedCircularLinkedList()   
+'''oo = orderedCircularLinkedList()   
 oo.enqueue(12)
 oo.enqueue(-1)
 oo.enqueue(22)
@@ -144,7 +144,7 @@ oo.traversal()
 
     
 
-'''llqueue = linkedqueue()
+llqueue = linkedqueue()
 for i in range(4):
     llqueue.enqueue(i)
     

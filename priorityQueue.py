@@ -1,3 +1,5 @@
+from Array import Array
+from LinkedQueuestack import linkedqueue
 class priorityQueue:
     '''list based implementation of priority queues
     '''
@@ -16,8 +18,8 @@ class priorityQueue:
     
     def __str__(self):
         pqlist =''
-        for i in self.pq_list:
-            pqlist += ' ' + str(i.item) + '-' + str(i.priority) +'--'
+        for pq_elem in self.pq_list:
+            pqlist += ' ' + str(pq_elem.item) + '-' + str(pq_elem.priority) +'--'
         return pqlist
             
     def dequeue(self):
@@ -111,16 +113,44 @@ class _llIterator:
         return self
             
 
+class boundedpriorityQueue:
+    '''
+    bounded priority queue implementation using Array class and queue class
+    '''
+
+    def __init__(self, levels):
+        self.queue_levels = Array(levels)
+        for num_level in range(levels):
+            self.queue_levels[num_level] = linkedqueue()
+        self.size = 0
+
+    def __len__(self):
+        return self.size
+
+    def is_empty(self):
+        return self.size == 0
+
+
+    def enqueue(self, item, priority):
+        if priority >= 0 and priority < len(self.queue_levels):
+            self.queue_levels[priority].enqueue(item)
+            self.size += 1
+    
+    def dequeue(self):
+        
+        for q_elem in range(len(self)):
+            if  not self.queue_levels[q_elem].is_empty():
+                return self.queue_levels[q_elem].dequeue()
 
 
 
 
-
-pq = priorityQueue_linkedlist()
+pq = boundedpriorityQueue(9)
 pq.enqueue("nine", 9)
 pq.enqueue("white",5)
-pq.enqueue("blue", 4)
+pq.enqueue("blue",4)
 pq.enqueue("red",3)
+pq.enqueue("der",3)
 pq.enqueue("one",0)
 pq.enqueue("zero",0)
 pq.enqueue("yellow",6)
