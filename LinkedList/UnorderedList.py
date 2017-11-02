@@ -63,7 +63,35 @@ class UnorderedList:
     
     def __iter__(self):
         return _llIterator(self.head)
+    def Insert_last (self, data):
+        node = Node(data)
+        current = self.head
+        previous = None
+        if current is None:
+            node.set_next(self.head)
+            self.head = node
+        else:
+            
+            while current is  None:
+                if previous is None:
+                    previous = current
+                else:
+                    previous.set_next(current)
+                current = current.get_next()
+            current.set_next(node)
+            self.head = current
+        return self.head
 
+    def reverse(self):
+        current = self.head
+        self.head = None
+        while current is not None:
+            node = Node(current.get_data())
+            node.set_next(self.head)
+            self.head = node
+            current = current.get_next()
+
+        
 class _llIterator:
 
     def __init__(self, llist):
@@ -103,6 +131,7 @@ class orderedList:
                      current = current.get_next()
                      found = False
          return found
+    
     def add(self, item):
         node = Node(item)
         previous = None
@@ -137,21 +166,22 @@ class orderedList:
         return self.size
 
     
-'''ll = UnorderedList()
+ll = UnorderedList()
 
 for i in range(11):
     ll.add(i)
+
+ll.traversal()
+ll.reverse()
+ll.traversal()
+
+'''for i in ll:
+    print(i)
 
 print(ll.remove.__doc__)
 print('size', ll.size())
 print(ll.remove(4))
 print('size', ll.size())
-ll.traversal()
-
-for i in ll:
-    print(i)'''
-
-
 kk = orderedList()
 kk.add(17)
 kk.add(2)
@@ -160,4 +190,4 @@ kk.add(54)
 kk.traversal()
 kk.add(455)
 
-kk.traversal()
+kk.traversal()'''
