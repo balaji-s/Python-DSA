@@ -25,7 +25,7 @@ class priority_queue:
             stop = False
             previous = None
             while current is not None and not stop:
-                if item > current.data and < current.next_node.data:
+                if item > current.data and  item < current.next_node.data:
                     stop = True
                 elif item == current.data:
                     stop = True
@@ -40,14 +40,44 @@ class priority_queue:
 class binaryheap:
 
     def __init__(self):
-        self.heap_list = [0]
+        self.heap_list = []
         self.size = 0
     
     def __len__(self):
         return self.size
 
-    def is_empty():
+    def is_empty(self):
         return self.size == 0
 
-    
     def insert(self, item):
+        self.heap_list.append(item)
+        self.size += 1
+        self.percolate(self.size)
+    
+    def percolate(self, current_size):
+        while current_size // 2 > 0:
+            #print(self.heap_list[current_size], self.heap_list [current_size // 2])
+            if self.heap_list[current_size -1] < self.heap_list[current_size//2]:
+                temp = self.heap_list[current_size // 2]
+                self.heap_list[current_size // 2] = self.heap_list[current_size - 1]
+                self.heap_list[current_size -1] = temp
+            current_size //= 2
+    def __str__(self):
+        for ele in self.heap_list:
+            print(str(ele),end=',')
+
+unorder_list = [-2,0,4,1,34,-1,2,22,13,4]  
+
+bin_heap = binaryheap()
+for i in unorder_list:
+    bin_heap.insert(i)
+bin_heap.__str__()
+
+
+
+
+
+
+
+    
+    
