@@ -1,9 +1,6 @@
 from Array import Array
-<<<<<<< HEAD
 
 
-=======
->>>>>>> master
 class Queue:
     '''
     List based implementation
