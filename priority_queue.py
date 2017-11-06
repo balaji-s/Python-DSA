@@ -19,7 +19,10 @@ class priority_queue:
     def enqueue(self, item, priority):
         pQueue = _priority(item, priority)
         if self.head is None:
+            pQueue.next_node = self.head
             self.head = pQueue
+            self.tail =pQueue
+
         else:
             current = self.head
             stop = False
@@ -33,9 +36,14 @@ class priority_queue:
                     previous = current
                     current = current.next_node
                 
-            self.tail.next = pQueue
-        self.tail = pQueue
+     
         self.size += 1
+
+    def traversal(self):
+        current = self.head
+        while current.next_node is not None:
+            print(current.data)
+            current = current.next_node
 
 class binaryheap:
 
@@ -50,6 +58,15 @@ class binaryheap:
         return self.size == 0
 
     def insert(self, item):
+<<<<<<< HEAD
+        pass
+
+
+
+pq = priority_queue()
+
+pq.enqueue("balaji",1)
+=======
         self.heap_list.append(item)
         self.size += 1
         self.percolate(self.size)
@@ -81,3 +98,4 @@ bin_heap.__str__()
 
     
     
+>>>>>>> master

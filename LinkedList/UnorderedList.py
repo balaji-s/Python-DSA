@@ -108,6 +108,8 @@ class _llIterator:
     def __iter__(self):
         return self
 
+   
+
 class orderedList:
 
     def __init__(self):
@@ -168,9 +170,24 @@ class orderedList:
     
 ll = UnorderedList()
 
-for i in range(11):
-    ll.add(i)
+for i in range(4):
+    ll.add_last(i)
 
+<<<<<<< HEAD
+ll.reverse()
+ll.traversal()
+
+'''print(ll.remove.__doc__)
+print('size', ll.size())
+print(ll.remove(4))
+print('size', ll.size())
+ll.traversal()
+
+for i in ll:
+    print(i)'''
+
+'''
+=======
 ll.traversal()
 ll.reverse()
 ll.traversal()
@@ -182,6 +199,7 @@ print(ll.remove.__doc__)
 print('size', ll.size())
 print(ll.remove(4))
 print('size', ll.size())
+>>>>>>> master
 kk = orderedList()
 kk.add(17)
 kk.add(2)
