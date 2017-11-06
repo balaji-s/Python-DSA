@@ -73,22 +73,20 @@ class DLinkedList:
             return prevnode.data
         else:
             if not self.is_empty():
-                current = self.head
-                count = 0
-                stop = False
-                while current is not None:
-                    if(count == position) and not stop:
-                        stop = True
-                        return current.data
-                    else:
-                        self.head = current
-                        current = current.next_node
-                        count += 1
-                   
-                   
 
+                result = self.findnode(position)
+                data = result.data
+                result.next_node.prev_node = result.next_node
+                result.prev_node.next_node = result.prev_node
+                return data
                     
         self.size -= 1
+
+    def findnode(self, position):
+        current = self.head
+        for i in range(position):
+            current = current.next_node
+        return current
 
     
     def remove(self, item):
