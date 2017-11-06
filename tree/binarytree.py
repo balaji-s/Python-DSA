@@ -3,6 +3,7 @@ class BinaryTree:
         self.root = root
         self.left_child = None
         self.right_child = None
+
     def insert_left(self, branch):
         if self.left_child is None:
             self.left_child = BinaryTree(branch)
@@ -21,6 +22,7 @@ class BinaryTree:
     
     def get_right_child(self):
         return self.right_child
+
     def get_left_child(self):
         return self.left_child
     
@@ -109,3 +111,7 @@ rot.breathFirstTrav(rot)
     b       c
   d   e   f  g    
 '''
+_root = BinaryTree(1)
+_right = BinaryTree(2)
+_root.insert_right()
+

@@ -173,21 +173,6 @@ ll = UnorderedList()
 for i in range(4):
     ll.add_last(i)
 
-<<<<<<< HEAD
-ll.reverse()
-ll.traversal()
-
-'''print(ll.remove.__doc__)
-print('size', ll.size())
-print(ll.remove(4))
-print('size', ll.size())
-ll.traversal()
-
-for i in ll:
-    print(i)'''
-
-'''
-=======
 ll.traversal()
 ll.reverse()
 ll.traversal()
@@ -199,7 +184,6 @@ print(ll.remove.__doc__)
 print('size', ll.size())
 print(ll.remove(4))
 print('size', ll.size())
->>>>>>> master
 kk = orderedList()
 kk.add(17)
 kk.add(2)
