@@ -63,29 +63,35 @@ class UnorderedList:
     
     def __iter__(self):
         return _llIterator(self.head)
-
-    def add_last(self, item):
-        node = Node(item)
-
-        if self.head is None:
+    def Insert_last (self, data):
+        node = Node(data)
+        current = self.head
+        previous = None
+        if current is None:
             node.set_next(self.head)
             self.head = node
         else:
-            temp = self.head
-            while temp.get_next() is not None:
-                temp = temp.get_next()
-            temp.set_next(node)
-            return temp
+            
+            while current is  None:
+                if previous is None:
+                    previous = current
+                else:
+                    previous.set_next(current)
+                current = current.get_next()
+            current.set_next(node)
+            self.head = current
+        return self.head
+
     def reverse(self):
         current = self.head
+        self.head = None
         while current is not None:
-            temp = current.get_data()
-            current = current.get_next()
-            node = Node(temp)
+            node = Node(current.get_data())
             node.set_next(self.head)
-            self.head  = node
+            self.head = node
+            current = current.get_next()
 
-
+        
 class _llIterator:
 
     def __init__(self, llist):
@@ -127,6 +133,7 @@ class orderedList:
                      current = current.get_next()
                      found = False
          return found
+    
     def add(self, item):
         node = Node(item)
         previous = None
@@ -166,6 +173,7 @@ ll = UnorderedList()
 for i in range(4):
     ll.add_last(i)
 
+<<<<<<< HEAD
 ll.reverse()
 ll.traversal()
 
@@ -179,6 +187,19 @@ for i in ll:
     print(i)'''
 
 '''
+=======
+ll.traversal()
+ll.reverse()
+ll.traversal()
+
+'''for i in ll:
+    print(i)
+
+print(ll.remove.__doc__)
+print('size', ll.size())
+print(ll.remove(4))
+print('size', ll.size())
+>>>>>>> master
 kk = orderedList()
 kk.add(17)
 kk.add(2)
