@@ -64,6 +64,28 @@ class UnorderedList:
     def __iter__(self):
         return _llIterator(self.head)
 
+    def add_last(self, item):
+        node = Node(item)
+
+        if self.head is None:
+            node.set_next(self.head)
+            self.head = node
+        else:
+            temp = self.head
+            while temp.get_next() is not None:
+                temp = temp.get_next()
+            temp.set_next(node)
+            return temp
+    def reverse(self):
+        current = self.head
+        while current is not None:
+            temp = current.get_data()
+            current = current.get_next()
+            node = Node(temp)
+            node.set_next(self.head)
+            self.head  = node
+
+
 class _llIterator:
 
     def __init__(self, llist):
@@ -79,6 +101,8 @@ class _llIterator:
 
     def __iter__(self):
         return self
+
+   
 
 class orderedList:
 
@@ -137,12 +161,15 @@ class orderedList:
         return self.size
 
     
-'''ll = UnorderedList()
+ll = UnorderedList()
 
-for i in range(11):
-    ll.add(i)
+for i in range(4):
+    ll.add_last(i)
 
-print(ll.remove.__doc__)
+ll.reverse()
+ll.traversal()
+
+'''print(ll.remove.__doc__)
 print('size', ll.size())
 print(ll.remove(4))
 print('size', ll.size())
@@ -151,7 +178,7 @@ ll.traversal()
 for i in ll:
     print(i)'''
 
-
+'''
 kk = orderedList()
 kk.add(17)
 kk.add(2)
@@ -160,4 +187,4 @@ kk.add(54)
 kk.traversal()
 kk.add(455)
 
-kk.traversal()
+kk.traversal()'''
