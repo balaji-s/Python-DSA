@@ -11,25 +11,71 @@ class binheap :
         self.size += 1
         self.percolate_item(self.size)
     
-    def percolate_item(self, i):
+    def percolate_item(self, current_size):
 
-        while i // 2 > 0:
+        while current_size // 2 > 0:
             
-            if self.heaplist[i] < self.heaplist[i // 2] :
-                temp = self.heaplist[i]
-                self.heaplist[i] = self.heaplist[i//2]
-                self.heaplist[i//2] = temp
+            if self.heaplist[current_size] < self.heaplist[current_size // 2] :
+                temp = self.heaplist[current_size]
+                self.heaplist[current_size] = self.heaplist[current_size//2]
+                self.heaplist[current_size//2] = temp
             
-            i = i // 2
+            current_size = current_size // 2
+    
+    def del_min(self):
+        value = self.heaplist[1]
+        self.heaplist[1] = self.heaplist[self.size]
+        self.size -= 1
+        self.heaplist.pop()
+        self.percolate_down(1)
+        return value
+    
+    def percolate_down(self, element):
+        while (element * 2) <= self.size :
+            minimum = self.minimum_child(element)
+            if self.heaplist[element] > self.heaplist[minimum] :
+                temp  = self.heaplist[element]
+                self.heaplist[element] = self.heaplist[minimum]
+                self.heaplist[minimum] = temp
+            element = minimum
+    
+    def build_heap(self, a_list):
+        i = len(a_list) // 2
+        self.size = len(a_list)
+        self.heaplist = [0] + a_list[:]
+        while i > 0 :
+            self.percolate_down(i)
+            i -= 1
+    
+    def minimum_child(self, i):
+        if i * 2 + 1 > self.size:
+            return i * 2
+        else:
+            if self.heaplist[i * 2] < self.heaplist[i * 2 + 1]:
+                return i * 2
+            else:
+                return i* 2 +1
+
+  
+
+
+
+
     
 
 bin_heap = binheap()
 
-bin_heap.insert(5)
-bin_heap.insert(3)
-bin_heap.insert(7)
-bin_heap.insert(4)
-bin_heap.insert(2)
+my_list = [2,3,-1, 0, 4,5,-4,21,22]
+for i in my_list:
+    bin_heap.insert(i)
+
+bin_heap.del_min()
+print(bin_heap.heaplist)
+print(bin_heap.del_min())
+print(bin_heap.heaplist)
+
+
+
 from Array import Array
 class maxheap:
 
@@ -50,6 +96,7 @@ class maxheap:
         self.percolate(self.size - 1)
     
     def percolate(self, size):
+        pass
         
     
 
