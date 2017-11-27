@@ -31,37 +31,36 @@ class BinaryTree:
     
     def get_root_value(self):
         return self.root
+def preordertrav(subtree):
 
-    def preordertrav(self, subtree):
-        '''pre order traversal
-        '''
-        if subtree is not None:
-            print(subtree.root)
-            self.preordertrav(subtree.get_left_child())
-            self.preordertrav(subtree.get_right_child())
-    def inordertraversal(self, subtree):
-        if subtree is not None:
-            self.inordertraversal(subtree.get_left_child())
-            print(subtree.root)
-            self.inordertraversal(subtree.get_right_child())
+    if subtree is not None:
+        print(subtree.root)
+        preordertrav(subtree.get_left_child())
+        preordertrav(subtree.get_right_child())
+            
+def inordertraversal(subtree):
+    if subtree is not None:
+        inordertraversal(subtree.get_left_child())
+        print(subtree.root)
+        inordertraversal(subtree.get_right_child())
 
-    def postordertraversal(self, subtree):
-        if subtree:
-            self.postordertraversal(subtree.get_left_child())
-            self.postordertraversal(subtree.get_right_child())
-            print(subtree.root)
-    def breathFirstTrav(self, tree):
-        queue = _Queue()
-        queue.enqueue(tree)
+def postordertraversal(subtree):
+    if subtree:
+        postordertraversal(subtree.get_left_child())
+        postordertraversal(subtree.get_right_child())
+        print(subtree.root)
+def breathFirstTrav(tree):
+    queue = _Queue()
+    queue.enqueue(tree)
 
-        while not queue.is_empty():
-            node = queue.dequeue()
-            print (node.root)
+    while not queue.is_empty():
+        node = queue.dequeue()
+        print (node.root)
 
-            if node.get_left_child() is not None:
-                queue.enqueue(node.get_left_child())
-            if node.get_right_child() is not None:
-                queue.enqueue(node.get_right_child())
+        if node.get_left_child() is not None:
+            queue.enqueue(node.get_left_child())
+        if node.get_right_child() is not None:
+            queue.enqueue(node.get_right_child())
 
 class _Queue:
 
@@ -89,29 +88,30 @@ rot.get_left_child().insert_right('e')
 rot.get_right_child().insert_left('f')
 rot.get_right_child().insert_right('g')
 
-'''print(rot.get_root_value())
+print(rot.get_root_value())
 print(rot.get_left_child().get_root_value())
 print(rot.get_left_child().get_right_child().get_root_value())
+print(rot.get_left_child().get_left_child().get_root_value())
 
 print(rot.get_right_child().get_root_value())
 print(rot.get_right_child().get_left_child().get_root_value())
-print(rot.get_right_child().get_right_child().get_root_value())'''
+print(rot.get_right_child().get_right_child().get_root_value())
 
 print('------pre order traversal-------')
-rot.preordertrav(rot)
+preordertrav(rot)
 print('------in order traversal-------')
-rot.inordertraversal(rot)
+inordertraversal(rot)
 print('-------------')
 print('------post order traversal-------')
-rot.postordertraversal(rot)
+postordertraversal(rot)
 print('-------breadth first search-------')
-rot.breathFirstTrav(rot)
-'''
-        a
+breathFirstTrav(rot)
+'''    
+    a
     b       c
-  d   e   f  g    
-'''
-_root = BinaryTree(1)
+  d   e   f  g    '''
+
+'''_root = BinaryTree(1)
 _right = BinaryTree(2)
-_root.insert_right()
+_root.insert_right(3)'''
 
