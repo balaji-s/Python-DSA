@@ -100,6 +100,21 @@ def recursiveList(myList):
         return myList
     else:
         return [myList[-1]] + recursiveList(myList[:-1])
+def count_list(mylist):
+    if len(mylist) == 0:
+        return 0
+    else:
+        return 1 + count_list(mylist[:-1])
+
+def max_element_rec(mylist):
+    if len(mylist) == 0:
+        return 0
+    else:
+        max = 0
+        pass
+
+k_list = [1,2,3]
+print('number of items in a list:', count_list(range(1,10)))
 '''
 print(string_rev('birni'))
 print(string_rev("kayaak"))

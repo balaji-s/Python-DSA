@@ -76,11 +76,26 @@ print(insertion_sort(b_list))'''
 
 '''print(bubble_sort(kk))
 print(selection_sort(kk))
-print(insertion_sort(kk))'''
+print(insertion_sort(kk))
 print(shell_sort(kk))
 print(shell_sort([5,4,3]))
 kc = list(range(2,45,2))
 random.shuffle(kc)
 print(kc)
-print(shell_sort(kc))
+print(shell_sort(kc))'''
+
+def quick_sort(any_list):
+  if len(any_list) < 2:
+    return any_list
+  else:
+    mp = len(any_list) // 2
+    pivot = any_list.pop(mp)
+    gt_pivot = [i for i in any_list if i <= pivot]
+    lt_pivot = [i for i in any_list if i > pivot]
+    return quick_sort(gt_pivot) + [pivot] + quick_sort(lt_pivot)
+
+    
+
+print(a_list)
+print(quick_sort(a_list))
 
