@@ -41,14 +41,14 @@ class Graph:
         else:
             return None
     
-    def __contains(self, n):
+    def __contains__(self, n):
         return n in self.vertices_list
 
     def add_edge(self, f, t, cost = 0):
         if f not in self.vertices_list:
-            nv = self.add_vertex(f)
+            self.add_vertex(f)
         if t not in self.vertices_list:
-            nv = self.add_vertex(t)
+            self.add_vertex(t)
         self.vertices_list[f].add_weight(self.vertices_list[t],cost)
     
     def get_vertices(self):
