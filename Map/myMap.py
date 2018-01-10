@@ -16,7 +16,6 @@ class mymap:
             return False
         else:
             map = mapStorage(key, value)
-            print(key,value)
             self.dict.append(map)
             return True
     def value(self, key):

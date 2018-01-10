@@ -26,9 +26,9 @@ def revString(string,rString):
 
 def string_rev(string):
     if string == '':
-        return string
+        return ""
     else:
-        print(string[:-1], string[-1:])
+        #print(string[:-1], string[-1:])
         return  string[-1:] + string_rev(string[:-1]) 
 
 
@@ -46,9 +46,9 @@ def reverseString(string):
 
 def factorial(number):
     if number == 1:
-        return number
+        return 1
     else:
-        print(number)
+        #print(number)
         return  factorial(number-1) * number
 
 
@@ -100,15 +100,37 @@ def recursiveList(myList):
         return myList
     else:
         return [myList[-1]] + recursiveList(myList[:-1])
-'''print(string_rev('balaji'))
+def count_list(mylist):
+    if len(mylist) == 0:
+        return 0
+    else:
+        return 1 + count_list(mylist[:-1])
+
+def max_element_rec(mylist):
+    if len(mylist) == 0:
+        return 0
+    else:
+        max = 0
+        pass
+
+k_list = [1,2,3]
+print('number of items in a list:', count_list(range(1,10)))
+'''
 print(string_rev('birni'))
 print(string_rev("kayaak"))
-print(factorial(5))
 print("hotpotato",hotPotato(['brad','tom','bill','bush','barney'],7))
 print(to_Str(17, 16))
 print(to_Str(10,2))
 print(palindromeLower('Go hang a salami; I\'m a lasagna hog.'))
 print(recursiveList([2,1,4,7,-2,456,45]))'''
     
-print(palindromeQueue("kayaka"))
-print(palindromeQueue("madam"))
+'''print(palindromeQueue("kayaka"))
+print(palindromeQueue("madam"))'''
+print(factorial(5))
+print(string_rev('balaji'))
+def printRev(n):
+    if n > 0:
+        printRev(n-1)
+        print(n)
+
+printRev(4)
