@@ -67,5 +67,4 @@ mapper.add("city","chennai")
 print(mapper.value("name"))
 
 for i in mapper:
-    
     print(i)
