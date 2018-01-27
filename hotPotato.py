@@ -106,12 +106,14 @@ def count_list(mylist):
     else:
         return 1 + count_list(mylist[:-1])
 
-def max_element_rec(mylist):
-    if len(mylist) == 0:
-        return 0
+def max_element_rec(mylist, max):
+    if len(mylist) == 1:
+        return max
     else:
-        max = 0
-        pass
+        if max < mylist[1]:
+            max = mylist[1]
+        return max_element_rec(mylist[1:], max)
+        
 
 k_list = [1,2,3]
 print('number of items in a list:', count_list(range(1,10)))
@@ -133,4 +135,6 @@ def printRev(n):
         printRev(n-1)
         print(n)
 
-printRev(4)
+#printRev(4)
+my_list = [123452,123453,5643,4,7,-2,456234,45,78, 34,1000,123544];
+print(max_element_rec(my_list,my_list[0]))
