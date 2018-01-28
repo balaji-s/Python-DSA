@@ -1,26 +1,31 @@
 from collections import deque
 
+
 graph = {}
 
 graph['you'] = ['alice','bob','claire']
 graph['bob'] = ['anuj', 'peggy']
 graph['alice'] = ['peggy']
-graph['claire'] = ['thom', 'jonny']
+graph['claire'] = ['thon', 'jonny']
 graph['anuj'] = []
 graph['peggy'] = []
-graph['thom'] = []
+graph['thon'] = []
 graph['jonny'] = []
 
 
-def  mango_seller(takes_dict):
+
+def  mango_seller(person):
+    takes_dict = deque();
+    takes_dict += person
+    searched = []
     while takes_dict:
         person = takes_dict.popleft()
-
-        if person[-1] == 'm':
-            return person + " is the mango seller"
+        if person not in searched:
+            if person[-1] == 'm':
+                return person + " is the mango seller"
         else:
-            print(person)
+            searched.append(person)
             takes_dict += graph[person]
     return "there is no mango seller"
 
-mango_seller(graph)
+print(mango_seller(graph))
