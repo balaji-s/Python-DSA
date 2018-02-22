@@ -47,18 +47,20 @@ def find_lowest_cost_node(_costs):
     return lowestcostnode
 
 
-_node = find_lowest_cost_node(costs)
 
-while _node is not None:
-    cost = costs[_node]
-    neighbour = graph[_node]
-    for n in neighbour.keys():
-        newcost = cost +neighbour[n]
-        if costs[n] > newcost:
-            costs[n] = newcost
-            parents[n] = _node
-    processed.append(_node)
-    _node = find_lowest_cost_node(costs)
+def mimimumDistance(_node):
+    while _node is not None:
+        cost = costs[_node]
+        neighbour = graph[_node]
+        for n in neighbour.keys():
+            newcost = cost +neighbour[n]
+            if costs[n] > newcost:
+                costs[n] = newcost
+                parents[n] = _node
+        processed.append(_node)
+        _node = find_lowest_cost_node(costs)
+
+_node = find_lowest_cost_node(costs)
+mimimumDistance(_node)
 
 print(costs, parents, graph)
-
