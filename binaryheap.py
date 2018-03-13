@@ -59,7 +59,7 @@ class binheap :
         self.size -= 1
         self.heaplist.pop()
         self.percolate_down(1)
-        return minimum
+        return value
 
     def percolate_down(self, ele):
         while (ele * 2)  <= self.size:
@@ -82,17 +82,6 @@ class binheap :
 
 
 
-bin_heap =BinHeap()
-
-bin_heap.add(5)
-bin_heap.add(9)
-bin_heap.add(7)
-bin_heap.add(14)
-bin_heap.add(18)
-
-print(bin_heap.delete_minimum())
-bin_heap.print_list()
-print(bin_heap.delete_minimum())
         
     
     def percolate_down(self, element):
@@ -123,6 +112,17 @@ print(bin_heap.delete_minimum())
 
   
 
+bin_heap =BinHeap()
+
+bin_heap.add(5)
+bin_heap.add(9)
+bin_heap.add(7)
+bin_heap.add(14)
+bin_heap.add(18)
+
+print(bin_heap.delete_minimum())
+bin_heap.print_list()
+print(bin_heap.delete_minimum())
 
 
 
@@ -165,9 +165,7 @@ class maxheap:
         pass
 
 
-def parse_tree(fp_exp):
-    fp_list = fp_exp.split()
-    fp_tree = Binarytree(' ')
+
         
     
 

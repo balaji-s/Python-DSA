@@ -1,3 +1,8 @@
+import sys
+sys.path.append("..")
+print(sys.path)
+from Stack import linkedstack
+
 class BinaryTree:
     def __init__(self, root):
         self.root = root
@@ -114,4 +119,16 @@ breathFirstTrav(rot)
 '''_root = BinaryTree(1)
 _right = BinaryTree(2)
 _root.insert_right(3)'''
+
+def parse_tree(fp_exp):
+    fp_list = fp_exp.split()
+    myStack = linkedstack()
+    fp_tree = BinaryTree('')
+    myStack.push(fp_tree)
+    currentTree = fp_tree
+
+    for i in fp_list:
+        if i =='(':
+            currentTree.insert_left('')
+            
 

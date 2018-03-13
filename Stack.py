@@ -76,7 +76,7 @@ class linkedstack:
 
 linstack = linkedstack()
 
-for i in range(4):
+'''for i in range(4):
     linstack.push(i)
 print(linstack.size)
 print(linstack.peek())
@@ -84,5 +84,94 @@ print(linstack.pop())
 print(linstack.size)
 print(linstack.pop())
 print(linstack.peek())
-print(linstack.size)
+print(linstack.size)'''
 
+
+
+def super_reduced_string(s):
+    my_stack = Stack()
+    for element in s:
+        if my_stack.is_empty():
+            my_stack.push(element)
+        else:
+            bb = my_stack.peek()
+            if bb == element:
+                my_stack.pop()
+            else:
+                my_stack.push(element)
+    result =""
+    for ele in my_stack.items:
+       result = result + ele
+    return result
+
+print(super_reduced_string("aaabccddd"))
+result =""
+k = 87
+value = k % 26
+#middle-Outz
+#sojjrk-Ua
+#6DWV95HzxTCHP85dvv3NY2crzt1aO8j6g2zSDvFUiJj6XWDlZvNNr
+print(value)
+for char in '6DWV95HzxTCHP85dvv3NY2crzt1aO8j6g2zSDvFUiJj6XWDlZvNNr':
+    if char.isalpha():
+        if char.isupper():
+            ordinal = ord(char)
+            intermediate = ordinal + value
+            if intermediate > 90:
+                ord_ord =intermediate-90 + 64
+                my_char = chr(ord_ord)
+                result = result + my_char
+            else:
+                result = result + chr(intermediate)
+        else:
+            ordinal = ord(char)
+            intermediate = ordinal + value
+            if intermediate > 122:
+                ord_ord = intermediate-122 + 96
+                my_char = chr(ord_ord)
+                result = result + my_char
+            else:
+                result = result + chr(intermediate)
+    else:
+        result = result + char
+print (result)
+
+S ='SOSOOSOSOSOSOSSOSOSOSOSOSOS'
+
+messages = len(S) // 3
+
+split_sos = []
+
+while S:
+    split_sos.append(S[:3])
+    S = S[3:]
+result1 = 0
+sos ='SOS'
+print(split_sos)
+for letter in split_sos:
+    if letter != 'SOS':
+        count = 0
+        for l in letter:
+            if l!=sos[count]:
+                result1 +=1
+            count += 1
+#print(result1)
+lili =['hereiamstackerrank','hackerworld']
+for a0 in lili:
+    
+    # your code goes here
+    hk ='hackerrank'
+    count = 0
+    result =''
+    success = False
+    for lc, letter in enumerate(a0):
+        if letter == hk[count]:
+            result += letter
+            success = True
+            count += 1
+            if count == len(hk):
+                break
+    if result == hk:
+        print('YES')
+    else:
+        print('NO')
