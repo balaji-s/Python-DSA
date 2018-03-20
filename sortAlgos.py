@@ -90,6 +90,7 @@ def quick_sort(any_list):
   else:
     mp = len(any_list) // 2
     pivot = any_list.pop(mp)
+    print("pivot",pivot)
   
     gtp = []
     ltp = []
@@ -102,6 +103,5 @@ def quick_sort(any_list):
 
     
 
-print(a_list)
 print(quick_sort(a_list))
 
