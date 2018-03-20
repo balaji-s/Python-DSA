@@ -90,12 +90,18 @@ def quick_sort(any_list):
   else:
     mp = len(any_list) // 2
     pivot = any_list.pop(mp)
-    gt_pivot = [i for i in any_list if i <= pivot]
-    lt_pivot = [i for i in any_list if i > pivot]
-    return quick_sort(gt_pivot) + [pivot] + quick_sort(lt_pivot)
+    print("pivot",pivot)
+  
+    gtp = []
+    ltp = []
+    for i in any_list :
+      if i <= pivot:
+        gtp.append(i)
+      else:
+        ltp.append(i)
+    return quick_sort(gtp) + [pivot] + quick_sort(ltp)
 
     
 
-print(a_list)
 print(quick_sort(a_list))
 
