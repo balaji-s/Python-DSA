@@ -1,4 +1,5 @@
 
+
 '''
 first create a graph of mapping values
 between nodes and edges
@@ -23,15 +24,35 @@ costs['a'] =6
 costs['b'] =2
 costs['finish'] = infinity
 
-'''
-map which node is connected to which node
-'''
-parents = {}
-parents['a'] ='start'
-parents['b'] ='start'
-parents['finish'] = None
 
 processed = []
+
+agraph ={}
+agraph['start'] ={}
+agraph['start']['a'] = 5
+agraph['start']['b'] = 2
+agraph['a'] ={}
+agraph['a']['c'] = 4
+agraph['a']['d'] = 2
+agraph['b'] ={}
+agraph['b']['a'] =8
+agraph['b']['d'] =7
+agraph['c'] ={}
+agraph['c']['d'] =6
+agraph['c']['finish'] =3
+agraph['d'] ={}
+agraph['d']['finish'] =1
+agraph['finish'] ={}
+
+acosts ={}
+_infinity = float('inf')
+acosts['a'] = 5
+acosts['b'] = 2
+acosts['c'] = _infinity
+acosts['d'] = _infinity
+acosts['finish'] = _infinity
+
+
 
 def find_lowest_cost_node(_costs):
     '''
@@ -48,19 +69,40 @@ def find_lowest_cost_node(_costs):
 
 
 
-def mimimumDistance(_node):
+def mimimumDistance(_node,costs,graph):
     while _node is not None:
         cost = costs[_node]
         neighbour = graph[_node]
         for n in neighbour.keys():
             newcost = cost +neighbour[n]
-            if costs[n] > newcost:
+            if  costs[n] > newcost:
                 costs[n] = newcost
-                parents[n] = _node
         processed.append(_node)
         _node = find_lowest_cost_node(costs)
 
-_node = find_lowest_cost_node(costs)
-mimimumDistance(_node)
+#_node = find_lowest_cost_node(acosts)
+#mimimumDistance(_node,acosts,agraph)
 
-print(costs, parents, graph)
+print(acosts)
+
+bgraph ={}
+bgraph['start'] ={}
+bgraph['start']['a'] = 10
+bgraph['a'] ={}
+bgraph['a'] ['b'] = 20
+bgraph['b'] ={}
+bgraph['b'] ['finish'] = 30
+bgraph['b'] ['c'] = 1
+bgraph['c'] ={}
+bgraph['c']['a'] = 1
+bgraph['finish'] ={}
+
+ccosts ={}
+ccosts['a'] = 10
+ccosts['b'] =_infinity
+ccosts['c'] = _infinity
+ccosts['finish'] =_infinity
+__node = find_lowest_cost_node(ccosts)
+mimimumDistance(__node,ccosts,bgraph)
+print('-----------------------------')
+print(ccosts)

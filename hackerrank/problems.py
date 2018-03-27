@@ -39,7 +39,7 @@ def pnz(array, array_length):
     negative = 0
     zero = 0
 
-def printhash(symbol,num):
+'''def printhash(symbol,num):
     
     count = 1
     for i in range(7,0,-1):
@@ -53,12 +53,12 @@ def printhash(symbol,num):
         else:
             zero +=1
     return(Decimal(round(positive/array_length, 5)),round(negative/array_length, 6),round(zero/array_length, 6))
+'''
+#k = pnz([-4, 3, -9, 0 , 4, 1],6)
+#print(k)
 
-k = pnz([-4, 3, -9, 0 , 4, 1],6)
-print(k)
 
-
-printhash('#',6)
+#printhash('#',6)
 def staircase(num_stairs):
     for stairs in range(1, num_stairs + 1):
         print (' ' * (num_stairs - stairs) + '#' * stairs)
@@ -154,5 +154,22 @@ class linkedList :
 
 ll = linkedList()
 
-for i in range(3):
-    ll.add_last(i)
+'''for i in range(3):
+    ll.add_last(i)'''
+
+
+def sockMerchant(n, ar):
+    socks = dict()
+    for element in ar:
+        if element in  socks:
+            socks[element] += 1
+        else:
+            socks[element] =1
+    sum = 0
+    for value in socks.values():
+        sum = sum + value // 2
+
+    return sum
+a = 2
+dd = [10, 20, 20, 10 ,10, 30,50, 10, 20]
+print(sockMerchant(a, dd))
